@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="18" failures="6" errors="0" time="0.821">
+  <testsuite name="tests/compatibility.test.js" errors="0" failures="6" skipped="0" timestamp="2025-08-22T18:50:02" time="0.799" tests="18">
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v5" name="should connect to provider" time="0.024">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v5" name="should validate addresses correctly" time="0.003">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+    at toBe (/home/dev/projects/megavio/matrix-versions/tests/compatibility.test.js:41:49)
+    at Array.forEach (&lt;anonymous&gt;)
+    at Object.forEach (/home/dev/projects/megavio/matrix-versions/tests/compatibility.test.js:40:33)
+    at Promise.then.completed (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:121:9)
+    at run (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/home/dev/projects/megavio/matrix-versions/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/home/dev/projects/megavio/matrix-versions/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v5" name="should get balance for valid addresses" time="0.01">
+      <failure>Error: bad address checksum (argument=&quot;address&quot;, value=&quot;0xA0b86a33E6417c7B07A39E1A747Ba8D2aE0d1e1F&quot;, code=INVALID_ARGUMENT, version=address/5.8.0)
+    at Logger.Object.&lt;anonymous&gt;.Logger.makeError (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.Object.&lt;anonymous&gt;.Logger.throwError (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at Logger.Object.&lt;anonymous&gt;.Logger.throwArgumentError (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+    at getAddress (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/address/src.ts/index.ts:93:20)
+    at Formatter.Object.&lt;anonymous&gt;.Formatter.address (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/providers/src.ts/formatter.ts:234:26)
+    at JsonRpcProvider.&lt;anonymous&gt; (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/providers/src.ts/base-provider.ts:2015:51)
+    at step (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/providers/lib/base-provider.js:48:23)
+    at Object.next (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/providers/lib/base-provider.js:29:53)
+    at fulfilled (/home/dev/projects/megavio/matrix-versions/node_modules/@ethersproject/providers/lib/base-provider.js:20:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v5" name="should handle zero balance correctly" time="0.006">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: &quot;0.0&quot;
+Received: &quot;11758.666717327489852258&quot;
+    at Object.toBe (/home/dev/projects/megavio/matrix-versions/tests/compatibility.test.js:67:33)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v5" name="should create wallet with private key" time="0.071">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v5" name="should format ether correctly" time="0.001">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v6" name="should connect to provider" time="0.016">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v6" name="should validate addresses correctly" time="0.002">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+    at toBe (/home/dev/projects/megavio/matrix-versions/tests/compatibility.test.js:41:49)
+    at Array.forEach (&lt;anonymous&gt;)
+    at Object.forEach (/home/dev/projects/megavio/matrix-versions/tests/compatibility.test.js:40:33)
+    at Promise.then.completed (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:126:9)
+    at _runTestsForDescribeBlock (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:121:9)
+    at _runTestsForDescribeBlock (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:121:9)
+    at run (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/home/dev/projects/megavio/matrix-versions/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/home/dev/projects/megavio/matrix-versions/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/home/dev/projects/megavio/matrix-versions/node_modules/jest-runner/build/runTest.js:444:34)</failure>
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v6" name="should get balance for valid addresses" time="0.01">
+      <failure>TypeError: bad address checksum (argument=&quot;address&quot;, value=&quot;0xA0b86a33E6417c7B07A39E1A747Ba8D2aE0d1e1F&quot;, code=INVALID_ARGUMENT, version=6.15.0)
+    at makeError (/home/dev/projects/megavio/matrix-versions/node_modules/ethers/src.ts/utils/errors.ts:691:21)
+    at assert (/home/dev/projects/megavio/matrix-versions/node_modules/ethers/src.ts/utils/errors.ts:719:25)
+    at assertArgument (/home/dev/projects/megavio/matrix-versions/node_modules/ethers/src.ts/utils/errors.ts:731:5)
+    at getAddress (/home/dev/projects/megavio/matrix-versions/node_modules/ethers/src.ts/address/address.ts:131:23)
+    at resolveAddress (/home/dev/projects/megavio/matrix-versions/node_modules/ethers/src.ts/address/checks.ts:108:67)
+    at JsonRpcProvider._getAddress (/home/dev/projects/megavio/matrix-versions/node_modules/ethers/src.ts/providers/abstract-provider.ts:718:30)
+    at JsonRpcProvider.#getAccountValue (/home/dev/projects/megavio/matrix-versions/node_modules/ethers/src.ts/providers/abstract-provider.ts:1061:54)
+    at JsonRpcProvider.getBalance (/home/dev/projects/megavio/matrix-versions/node_modules/ethers/src.ts/providers/abstract-provider.ts:1072:53)
+    at WalletService.getBalance (/home/dev/projects/megavio/matrix-versions/src/WalletService.js:31:41)
+    at Object.getBalance (/home/dev/projects/megavio/matrix-versions/tests/compatibility.test.js:49:39)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v6" name="should handle zero balance correctly" time="0.013">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: &quot;0.0&quot;
+Received: &quot;11758.666717327489852258&quot;
+    at Object.toBe (/home/dev/projects/megavio/matrix-versions/tests/compatibility.test.js:67:33)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v6" name="should create wallet with private key" time="0.026">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Ethers v6" name="should format ether correctly" time="0">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Cross-Version Compatibility" name="should return same balance for same address across versions" time="0.018">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Cross-Version Compatibility" name="should handle formatting consistently across versions" time="0">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Cross-Version Compatibility" name="should validate same addresses consistently" time="0.001">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Cross-Version Compatibility" name="should create wallets with same address from same private key" time="0.04">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Error Handling Compatibility" name="should handle invalid addresses consistently" time="0.166">
+    </testcase>
+    <testcase classname="Ethers Version Compatibility Tests › Error Handling Compatibility" name="should handle connection errors consistently" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

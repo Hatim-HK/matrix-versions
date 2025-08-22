@@ -1,0 +1,122 @@
+name: Ethers Compatibility CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  compatibility-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+        ethers-version: [v5, v6]
+        include:
+          - node-version: 16.x
+            ethers-version: v5
+            compatibility-check: true
+          - node-version: 18.x  
+            ethers-version: v6
+            compatibility-check: true
+          - node-version: 20.x
+            ethers-version: v6
+            compatibility-check: true
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Start Hardhat Network Fork
+      run: |
+        npx hardhat node --fork ${{ secrets.ETHEREUM_RPC_URL }} &
+        sleep 10
+      env:
+        ETHEREUM_RPC_URL: ${{ secrets.ETHEREUM_RPC_URL }}
+
+    - name: Wait for Hardhat Node
+      run: |
+        timeout 30 bash -c 'until curl -s http://localhost:8545 > /dev/null; do sleep 1; done'
+
+    - name: Run Ethers ${{ matrix.ethers-version }} Tests
+      run: npm run test:${{ matrix.ethers-version }}
+      env:
+        ETHERS_VERSION: ${{ matrix.ethers-version }}
+        CI: true
+
+    - name: Run Cross-Version Compatibility Tests
+      if: matrix.compatibility-check
+      run: npm run test:compatibility
+      env:
+        CI: true
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results-${{ matrix.node-version }}-${{ matrix.ethers-version }}
+        path: |
+          test-results/
+          coverage/
+
+  backward-compatibility:
+    needs: compatibility-matrix
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18.x
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Check Backward Compatibility
+      id: compatibility-check
+      run: |
+        # This step would fail the build if backward compatibility is broken
+        npm run test:compatibility
+        echo "backward-compatible=true" >> $GITHUB_OUTPUT
+      continue-on-error: true
+
+    - name: Report Compatibility Status
+      run: |
+        if [ "${{ steps.compatibility-check.outputs.backward-compatible }}" = "true" ]; then
+          echo "✅ Backward compatibility maintained"
+          exit 0
+        else
+          echo "❌ Backward compatibility broken - blocking release"
+          exit 1
+        fi
+
+  release-gate:
+    needs: [compatibility-matrix, backward-compatibility]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Release Gate Check
+      run: |
+        echo "All compatibility checks passed"
+        echo "Ready for release ✅"
+
+    - name: Tag Release (if needed)
+      if: success()
+      run: |
+        # Add your release tagging logic here
+        echo "Would create release tag here"
